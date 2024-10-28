@@ -5,3 +5,6 @@ replace_model_in_yaml.py
 zip_config_patterns.py
 addons.zip
 poetry.lock
+*.history
+.history/
+.DS_Store

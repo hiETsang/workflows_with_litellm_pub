@@ -1,0 +1,31 @@
+# 生活类文章
+
+strategies:
+  - model: deepseek/deepseek-chat  #openrouter/anthropic/claude-3.5-sonnet
+    prompt_name: write_canoe_life_blog
+    input_format: "{{text}}"
+    output_name: life_blog_draft
+
+  # - tool_name: search_exa
+  #   input_format: "{{text}}"
+  #   output_name: exa_result
+
+  # - model: deepseek/deepseek-chat
+  #   prompt_name: outliner_wsy
+  #   input_format: "{{exa_result}}"
+  #   output_name: outline
+
+  # - model: deepseek/deepseek-chat
+  #   prompt_name: fill_draft_with_material
+  #   input_format: |
+  #     search result:
+  #     {{exa_result}}
+  #     outline:
+  #     {{outline}}
+  #   output_name: draft_filled  
+
+  - model: openrouter/anthropic/claude-3.5-sonnet
+    prompt_name: write_canoe_life_blog
+    input_format: "{{text}}"
+    output_name: life_blog_draft
+    

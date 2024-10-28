@@ -1,0 +1,27 @@
+# 将内容转成中文
+
+strategies:
+  - model: openrouter/openai/gpt-4o-mini
+    prompt_name: translate_swift_book
+    input_format: "{{text}}"
+    output_name: translation
+
+  - model: openrouter/openai/gpt-4o-mini
+    prompt_name: comment_swift_book_cn_trans
+    input_format: |
+      original text:
+      {{text}}
+      translation:
+      {{translation}}
+    output_name: reflection
+
+  - model: openrouter/openai/gpt-4o-mini
+    prompt_name: improved_swift_book_trans_cn
+    input_format: |
+      original text:
+      {{text}}
+      translation:
+      {{translation}}
+      comments:
+      {{reflection}}
+    output_name: improvement
