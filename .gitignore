@@ -8,3 +8,5 @@ poetry.lock
 *.history
 .history/
 .DS_Store
+.history/*
+.history
