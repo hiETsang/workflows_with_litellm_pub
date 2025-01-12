@@ -1,13 +1,15 @@
+# 工具分类工作流，输入工具描述，生成工具分类，保存 json 到本地
 
+strategies:
 - input_format: 'tool description:
-    {{tool_desc}}'
+    {{text}}'
   model: openrouter/anthropic/claude-3-sonnet
   prompt_name: indietool_categorize_pattern
   output_name: tool_categories
 
 - input_format: 'markdown content:
 
-    {{tool_desc}}
+    {{text}}
 
     categories and tags:
 
@@ -15,3 +17,9 @@
   model: openrouter/anthropic/claude-3-sonnet
   prompt_name: indietool_json_pattern
   output_name: tool_json 
+
+- input_format: '{{tool_json}}'
+  tool_name: save_to_indieto_json
+  tool_params:
+    link: "{{text}}"
+  output_name: save_result

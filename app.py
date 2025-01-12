@@ -317,6 +317,8 @@ class TextProcessor(BaseTextProcessor):
                     tools[tool_name] = SearchTools.jina_reader
                 elif tool_name == 'save_to_indieto':
                     tools[tool_name] = FileTools.save_to_indieto
+                elif tool_name == 'save_to_indieto_json':
+                    tools[tool_name] = FileTools.save_to_indieto_json
         return tools
 
     def load_models(self) -> Dict[str, APIClient]:
@@ -660,12 +662,7 @@ class FileTools:
 
     @staticmethod
     def save_to_indieto(content: str, link: str = None, **kwargs) -> str:
-        """Save content to IndieTO directory
-        
-        Args:
-            content: The content to save (passed directly from input_format)
-            link: The URL to extract tool name from (passed from tool_params)
-        """
+        """Save markdown content to IndieTO directory"""
         try:
             # Get current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -695,6 +692,51 @@ class FileTools:
             
         except Exception as e:
             error_msg = f"Error saving file: {str(e)}"
+            logger.error(error_msg)
+            return error_msg
+
+    @staticmethod
+    def save_to_indieto_json(content: str, link: str = None, **kwargs) -> str:
+        """Save JSON content to IndieTO directory
+        
+        Args:
+            content: The JSON content to save
+            link: The URL of the tool
+        """
+        try:
+            # Get current directory and extract tool name
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            
+            if not link:
+                raise ValueError("No URL provided")
+            
+            tool_name = FileTools._extract_tool_name(link)
+            
+            # Create IndieTO directory if it doesn't exist
+            indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
+            os.makedirs(indieto_dir, exist_ok=True)
+            
+            # Create file path
+            file_path = os.path.join(indieto_dir, 'info.json')
+            
+            # Parse and format JSON content
+            try:
+                if isinstance(content, dict):
+                    json_content = content
+                else:
+                    json_content = json.loads(content)
+                
+                # Save formatted JSON to file
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    json.dump(json_content, f, indent=2, ensure_ascii=False)
+                
+                logger.info(f"JSON content saved to {file_path}")
+                return f"Successfully saved to {file_path}"
+            except json.JSONDecodeError as je:
+                raise ValueError(f"Invalid JSON content: {str(je)}")
+            
+        except Exception as e:
+            error_msg = f"Error saving JSON file: {str(e)}"
             logger.error(error_msg)
             return error_msg
 
