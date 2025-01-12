@@ -1,3 +1,5 @@
+# 工具收集工作流，输入链接，生成 markdown
+
 strategies:
 - input_format: 'url: {{text}}'
   tool_name: jina_reader
@@ -24,19 +26,8 @@ strategies:
   prompt_name: indietool_desc_pattern
   output_name: tool_desc
 
-- input_format: 'tool description:
-    {{tool_desc}}'
-  model: openrouter/anthropic/claude-3-sonnet
-  prompt_name: indietool_categorize_pattern
-  output_name: tool_categories
-
-- input_format: 'markdown content:
-
-    {{tool_desc}}
-
-    categories and tags:
-
-    {{tool_categories}}'
-  model: openrouter/anthropic/claude-3-sonnet
-  prompt_name: indietool_json_pattern
-  output_name: tool_json 
+- input_format: '{{tool_desc}}'
+  tool_name: save_to_indieto
+  tool_params:
+    link: "{{text}}"
+  output_name: save_result

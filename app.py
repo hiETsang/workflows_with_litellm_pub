@@ -315,6 +315,8 @@ class TextProcessor(BaseTextProcessor):
                     tools[tool_name] = SearchTools.exa_search
                 elif tool_name == 'jina_reader':
                     tools[tool_name] = SearchTools.jina_reader
+                elif tool_name == 'save_to_indieto':
+                    tools[tool_name] = FileTools.save_to_indieto
         return tools
 
     def load_models(self) -> Dict[str, APIClient]:
@@ -352,12 +354,18 @@ class TextProcessor(BaseTextProcessor):
         for i, strategy in enumerate(self.strategies, 1):
             self.current_strategy = strategy
             try:
+                logger.info(f"Executing strategy {i} with output_name: {strategy.config.output_name}")
                 result = strategy.process(chunk, self, previous_outputs)
+                
                 if result is not None:
-                    previous_outputs[strategy.config.output_name] = result
+                    if strategy.config.output_name:
+                        logger.info(f"Saving result to {strategy.config.output_name}, length: {len(result)}")
+                        previous_outputs[strategy.config.output_name] = result
                     final_result = result
+                    
                     if self.debug:
-                        logger.info(f"Strategy {i} result: {result[:500]}...")
+                        logger.info(f"Strategy {i} result length: {len(result)}")
+                        logger.info(f"Current previous_outputs keys: {list(previous_outputs.keys())}")
             except Exception as e:
                 logger.error(f"Error in strategy {i}: {str(e)}")
         
@@ -484,13 +492,57 @@ class ProcessingStrategy:
         else:
             self.user_input_template = "{{text}}"
 
+    def _replace_variables(self, text: str, chunk: str, previous_outputs: Dict[str, str]) -> str:
+        """Replace variables in text with their values"""
+        result = text
+        logger.info(f"Starting variable replacement. Original text: {text[:100]}...")
+        
+        # 替换前序输出变量
+        for key, value in previous_outputs.items():
+            if f"{{{{{key}}}}}" in result:
+                logger.info(f"Replacing {{{{{key}}}}} with value of length {len(str(value))}")
+                result = result.replace(f"{{{{{key}}}}}", str(value))
+        
+        # 替换当前文本变量
+        if "{{text}}" in result:
+            logger.info(f"Replacing {{text}} with chunk of length {len(chunk)}")
+            result = result.replace("{{text}}", chunk)
+        
+        logger.info(f"Variable replacement completed. Result length: {len(result)}")
+        return result
+
     def process(self, chunk: str, processor: TextProcessor, previous_outputs: Dict[str, str]) -> str:
         """Execute the strategy on a text chunk"""
         logger.debug(f"Processing strategy: {self.config.prompt_name or self.config.tool_name}")
+        logger.info(f"Previous outputs keys: {list(previous_outputs.keys())}")
+        logger.info(f"Previous outputs values: {previous_outputs}")
         
         try:
             if self.config.tool_name:
-                result = processor.execute_tool(self.config.tool_name, chunk, self.tool_params)
+                # 处理工具参数中的变量
+                processed_params = {}
+                for key, value in self.tool_params.items():
+                    if isinstance(value, str):
+                        logger.info(f"Processing tool param {key}")
+                        processed_params[key] = self._replace_variables(value, chunk, previous_outputs)
+                    else:
+                        processed_params[key] = value
+                
+                # 处理输入文本中的变量
+                logger.info(f"Processing input format: {self.user_input_template[:100]}...")
+                # 如果是保存文件的步骤，使用 tool_desc 作为内容
+                if self.config.tool_name == 'save_to_indieto':
+                    if 'tool_desc' not in previous_outputs:
+                        raise ValueError("No tool_desc found in previous outputs")
+                    processed_chunk = previous_outputs['tool_desc']
+                else:
+                    processed_chunk = self._replace_variables(self.user_input_template, chunk, previous_outputs)
+                
+                logger.info(f"Executing tool {self.config.tool_name}")
+                logger.info(f"Processed chunk length: {len(processed_chunk)}")
+                logger.info(f"Processed params: {processed_params}")
+                
+                result = processor.execute_tool(self.config.tool_name, processed_chunk, processed_params)
             elif self.config.model:
                 prompt = self.prepare_prompt(chunk, processor, previous_outputs)
                 result = processor.execute_model(self.config.model, prompt)
@@ -509,14 +561,7 @@ class ProcessingStrategy:
             return chunk
         
         # Format user input using template
-        user_input = self.user_input_template
-        
-        # Replace previous outputs
-        for key, value in previous_outputs.items():
-            user_input = user_input.replace(f"{{{{{key}}}}}", str(value))
-        
-        # Replace current chunk
-        user_input = user_input.replace("{{text}}", chunk)
+        user_input = self._replace_variables(self.user_input_template, chunk, previous_outputs)
         
         # Replace memory placeholders
         for key, value in processor.memory.items():
@@ -594,6 +639,64 @@ class SearchTools:
         except Exception as e:
             logger.error(f"Jina reader error: {e}")
             return f"Error reading webpage: {str(e)}"
+
+class FileTools:
+    """Implementation of file-related tools"""
+    @staticmethod
+    def _extract_tool_name(url: str) -> str:
+        """Extract tool name from URL"""
+        try:
+            from urllib.parse import urlparse
+            # 解析 URL
+            parsed_url = urlparse(url)
+            # 获取域名
+            domain = parsed_url.netloc
+            # 移除 www. 和 .com/.net 等后缀
+            name = domain.replace('www.', '').split('.')[0]
+            return name
+        except Exception as e:
+            logger.error(f"Error extracting tool name from URL: {e}")
+            return "unknown"
+
+    @staticmethod
+    def save_to_indieto(content: str, link: str = None, **kwargs) -> str:
+        """Save content to IndieTO directory
+        
+        Args:
+            content: The content to save (passed directly from input_format)
+            link: The URL to extract tool name from (passed from tool_params)
+        """
+        try:
+            # Get current directory
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            
+            if not content:
+                raise ValueError("No content provided")
+            
+            # Extract tool name from URL
+            if not link:
+                raise ValueError("No URL provided")
+                
+            tool_name = FileTools._extract_tool_name(link)
+            
+            # Create IndieTO directory if it doesn't exist
+            indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
+            os.makedirs(indieto_dir, exist_ok=True)
+            
+            # Create file path
+            file_path = os.path.join(indieto_dir, 'desc.md')
+            
+            # Save content to file
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            logger.info(f"Content saved to {file_path}")
+            return f"Successfully saved to {file_path}"
+            
+        except Exception as e:
+            error_msg = f"Error saving file: {str(e)}"
+            logger.error(error_msg)
+            return error_msg
 
 # Output Management
 def save_output(results: List[str], output_path: str, output_format: str):
