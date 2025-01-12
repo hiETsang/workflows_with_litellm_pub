@@ -17,6 +17,6 @@
 4. 点击保存，将 json 文件保存到 IndieTO/toolname/info.json 
 
 # indieto_tool_gen_logo (logo 生成)
-1. 获取 json 中的链接
-2. 通过 [jina reader](https://img.logo.dev/mcdonalds.com?token=pk_flBx7FQ8T7i0rIbWfbJgDw&retina=true) 获取网站的 logo 保存到 IndieTO/toolname/logo.jpg 目录下
-3. 通过 [apiflash](https://api.apiflash.com/v1/urltoimage?access_key=7716ac4eb9d64fa5911ce98d1bb8fd71&wait_until=page_loaded&url=http://cursor.com&width=1200&height=1200&no_cookie_banners=true&scroll_page=true&no_ads=true) 获取网站的 screenshot 保存到 IndieTO/toolname/screenshot.jpg 目录下
+1. 输入链接，例如 https://uneed.best/
+2. 通过 [img logo API](https://img.logo.dev/uneed.best?token=pk_flBx7FQ8T7i0rIbWfbJgDw&retina=true) 获取网站的 logo 保存到 IndieTO/uneed/logo.jpg 目录下
+3. 通过 [apiflash](https://api.apiflash.com/v1/urltoimage?access_key=7716ac4eb9d64fa5911ce98d1bb8fd71&wait_until=page_loaded&url=https://uneed.best/&width=1200&height=1200&no_cookie_banners=true&scroll_page=true&no_ads=true) 获取网站的 screenshot 保存到 IndieTO/uneed/screenshot.jpg 目录下

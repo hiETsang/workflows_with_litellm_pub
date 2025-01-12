@@ -20,6 +20,4 @@ strategies:
 
 - input_format: '{{tool_json}}'
   tool_name: save_to_indieto_json
-  tool_params:
-    link: "{{text}}"
   output_name: save_result

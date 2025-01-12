@@ -1,0 +1,6 @@
+# 简化的 logo 和 screenshot 生成工作流
+
+strategies:
+- input_format: '{{text}}'
+  tool_name: generate_assets
+  output_name: save_result

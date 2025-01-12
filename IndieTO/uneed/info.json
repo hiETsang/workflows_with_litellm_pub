@@ -1,0 +1,20 @@
+{
+  "name": "Uneed",
+  "description": "Uneed is a democratic launch platform for discovering and promoting tech products and tools.",
+  "link": "https://www.uneed.best/",
+  "categories": [
+    "research",
+    "marketing"
+  ],
+  "tags": [
+    "web",
+    "no-code",
+    "freemium",
+    "market-research",
+    "social-media",
+    "platform-marketing"
+  ],
+  "content": "## Tool Introduction\n\nUneed is a vibrant community where makers can showcase their latest creations to get visibility, feedback and support from a diverse audience. Users can explore fresh tech tools daily, across various categories like development, design, marketing and more. Uneed aims to provide a fair stage for all innovations to shine.\n\n## Key Features\n\n- Daily launches of new products across multiple categories\n- Upvoting system to surface trending tools\n- Platform for makers to promote their tools\n- Community leaderboard for active contributors\n- Directories of top tools in specific niches\n\n## Use Cases\n\n- Discover innovative tools and software across different domains\n- Seek inspiration for new product ideas from trending launches\n- Get early user feedback and traction for your product launches\n- Connect with an engaged community of creators and early adopters\n\n## Pricing Plans\n\n- Free: Basic access to browse products\n- Maker Pro: $25/month, promote unlimited tools, additional stats\n- Business: $100/month, enhanced promotion, priority support\n\n## Pros & Cons\n\n- Pros: Fresh product discovery, maker-friendly, active community\n- Cons: No Android/iOS apps, limited advanced filtering options",
+  "image": "/IndieTO/Uneed/screenshot.jpg",
+  "icon": "/IndieTO/Uneed/logo.jpg"
+}

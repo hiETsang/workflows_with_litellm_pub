@@ -319,6 +319,8 @@ class TextProcessor(BaseTextProcessor):
                     tools[tool_name] = FileTools.save_to_indieto
                 elif tool_name == 'save_to_indieto_json':
                     tools[tool_name] = FileTools.save_to_indieto_json
+                elif tool_name == 'generate_assets':
+                    tools[tool_name] = FileTools.generate_assets
         return tools
 
     def load_models(self) -> Dict[str, APIClient]:
@@ -537,6 +539,10 @@ class ProcessingStrategy:
                     if 'tool_desc' not in previous_outputs:
                         raise ValueError("No tool_desc found in previous outputs")
                     processed_chunk = previous_outputs['tool_desc']
+                elif self.config.tool_name == 'save_to_indieto_json':
+                    if 'tool_json' not in previous_outputs:
+                        raise ValueError("No tool_json found in previous outputs")
+                    processed_chunk = previous_outputs['tool_json']
                 else:
                     processed_chunk = self._replace_variables(self.user_input_template, chunk, previous_outputs)
                 
@@ -649,11 +655,8 @@ class FileTools:
         """Extract tool name from URL"""
         try:
             from urllib.parse import urlparse
-            # 解析 URL
             parsed_url = urlparse(url)
-            # 获取域名
             domain = parsed_url.netloc
-            # 移除 www. 和 .com/.net 等后缀
             name = domain.replace('www.', '').split('.')[0]
             return name
         except Exception as e:
@@ -662,7 +665,12 @@ class FileTools:
 
     @staticmethod
     def save_to_indieto(content: str, link: str = None, **kwargs) -> str:
-        """Save markdown content to IndieTO directory"""
+        """Save markdown content to IndieTO directory
+        
+        Args:
+            content: The content to save (passed directly from input_format)
+            link: The URL to extract tool name from (passed from tool_params)
+        """
         try:
             # Get current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -700,31 +708,37 @@ class FileTools:
         """Save JSON content to IndieTO directory
         
         Args:
-            content: The JSON content to save
-            link: The URL of the tool
+            content: The JSON content to save (passed directly from input_format)
+            link: The JSON string containing the link field (passed from tool_params)
         """
         try:
-            # Get current directory and extract tool name
+            # Get current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
             
-            if not link:
-                raise ValueError("No URL provided")
-            
-            tool_name = FileTools._extract_tool_name(link)
-            
-            # Create IndieTO directory if it doesn't exist
-            indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
-            os.makedirs(indieto_dir, exist_ok=True)
-            
-            # Create file path
-            file_path = os.path.join(indieto_dir, 'info.json')
+            if not content:
+                raise ValueError("No content provided")
             
             # Parse and format JSON content
             try:
-                if isinstance(content, dict):
-                    json_content = content
-                else:
-                    json_content = json.loads(content)
+                # 处理 content
+                content_str = str(content).strip()
+                
+                # 解析 JSON 内容
+                json_content = json.loads(content_str)
+                
+                # 从 JSON 中获取 link
+                if not isinstance(json_content, dict) or 'link' not in json_content:
+                    raise ValueError("JSON content must contain a 'link' field")
+                
+                tool_url = json_content['link']
+                tool_name = FileTools._extract_tool_name(tool_url)
+                
+                # Create IndieTO directory if it doesn't exist
+                indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
+                os.makedirs(indieto_dir, exist_ok=True)
+                
+                # Create file path
+                file_path = os.path.join(indieto_dir, 'info.json')
                 
                 # Save formatted JSON to file
                 with open(file_path, 'w', encoding='utf-8') as f:
@@ -739,6 +753,19 @@ class FileTools:
             error_msg = f"Error saving JSON file: {str(e)}"
             logger.error(error_msg)
             return error_msg
+
+    @staticmethod
+    def generate_assets(url: str, **kwargs) -> str:
+        """生成并保存网站的 logo 和 screenshot"""
+        try:
+            from scripts.generate_assets import AssetGenerator
+            generator = AssetGenerator(apiflash_key=os.getenv("APIFLASH_KEY"))
+            result = generator.save_assets(url)
+            logger.info(result)
+            return result
+        except Exception as e:
+            logger.error(f"Error generating assets: {e}")
+            return f"Error generating assets: {str(e)}"
 
 # Output Management
 def save_output(results: List[str], output_path: str, output_format: str):

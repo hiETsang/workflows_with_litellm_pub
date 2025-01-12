@@ -8,8 +8,7 @@
 5. 字符串值使用双引号
 6. content 字段只包含从"工具介绍"标题开始的所有内容，不包含工具名称和基础信息部分
 
-输出格式：
-```json
+输出json格式：
 {
     "name": "toolname",
     "description": "tool description",
@@ -32,7 +31,6 @@
     "image": "/IndieTO/toolname/screenshot.jpg",
     "icon": "/IndieTO/toolname/logo.jpg",
   }
-```
 
 注意：
 1. 只输出 JSON 格式的结果
