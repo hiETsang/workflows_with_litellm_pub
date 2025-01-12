@@ -1,0 +1,42 @@
+strategies:
+- input_format: 'url: {{text}}'
+  tool_name: jina_reader
+  tool_params:
+    retain_images: false
+    with_links_summary: true
+  output_name: website_info
+
+- input_format: '{{text}}'
+  tool_name: exa_search
+  tool_params:
+    num_results: 10
+    category: tweet
+  output_name: search_results
+
+- input_format: 'website info:
+
+    {{website_info}}
+
+    search results:
+
+    {{search_results}}'
+  model: openrouter/anthropic/claude-3-sonnet
+  prompt_name: indietool_desc_pattern
+  output_name: tool_desc
+
+- input_format: 'tool description:
+    {{tool_desc}}'
+  model: openrouter/anthropic/claude-3-sonnet
+  prompt_name: indietool_categorize_pattern
+  output_name: tool_categories
+
+- input_format: 'markdown content:
+
+    {{tool_desc}}
+
+    categories and tags:
+
+    {{tool_categories}}'
+  model: openrouter/anthropic/claude-3-sonnet
+  prompt_name: indietool_json_pattern
+  output_name: tool_json 

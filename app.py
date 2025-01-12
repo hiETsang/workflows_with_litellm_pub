@@ -313,6 +313,8 @@ class TextProcessor(BaseTextProcessor):
                 tool_name = strategy['tool_name']
                 if tool_name == 'exa_search':
                     tools[tool_name] = SearchTools.exa_search
+                elif tool_name == 'jina_reader':
+                    tools[tool_name] = SearchTools.jina_reader
         return tools
 
     def load_models(self) -> Dict[str, APIClient]:
@@ -574,6 +576,24 @@ class SearchTools:
         except Exception as e:
             logger.error(f"Exa search error: {str(e)}")
             return f"Error in Exa search: {str(e)}"
+        
+    @staticmethod
+    def jina_reader(url: str, **kwargs) -> str:
+        """Read webpage content using Jina AI"""
+        try:
+            from scripts.jina_reader import JinaReader
+            reader = JinaReader()
+            
+            retain_images = kwargs.get('retain_images', False)
+            with_links_summary = kwargs.get('with_links_summary', True)
+            
+            result = reader.read_url(url, retain_images=retain_images, with_links_summary=with_links_summary)
+            logger.info(f"Jina reader completed for URL: {url}")
+            return str(result)
+            
+        except Exception as e:
+            logger.error(f"Jina reader error: {e}")
+            return f"Error reading webpage: {str(e)}"
 
 # Output Management
 def save_output(results: List[str], output_path: str, output_format: str):
