@@ -14,7 +14,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # 初始化session state
 if 'workflow_state' not in st.session_state:
     st.session_state.workflow_state = {
-        'current_workflow': None,
+        'current_workflow': 'indieto_tool_collect',  # 设置默认工作流
         'output_content': None,
         'workflow_sequence': [
             'indieto_tool_collect',
@@ -34,6 +34,15 @@ def get_next_workflow(current_workflow):
     except ValueError:
         pass
     return None
+
+def switch_to_next_workflow():
+    """切换到下一个工作流"""
+    current = st.session_state.workflow_state['current_workflow']
+    next_workflow = get_next_workflow(current)
+    if next_workflow:
+        st.session_state.workflow_state['current_workflow'] = next_workflow
+        st.session_state.workflow_state['previous_output'] = st.session_state.workflow_state.get('output_content')
+        st.session_state.workflow_state['output_content'] = None
 
 def create_api_key_input(key_name, env_var_name):
     """创建API key输入框并处理其逻辑"""
@@ -172,13 +181,13 @@ workflows = load_workflows()
 selected_workflow = st.selectbox(
     '选择工作流', 
     workflows,
-    index=workflows.index(st.session_state.workflow_state['current_workflow']) if st.session_state.workflow_state['current_workflow'] else 0
+    index=workflows.index(st.session_state.workflow_state['current_workflow'])
 )
 
 # 如果工作流发生变化，更新状态
 if selected_workflow != st.session_state.workflow_state['current_workflow']:
     st.session_state.workflow_state['current_workflow'] = selected_workflow
-    st.session_state.workflow_state['output_content'] = None  # 清除之前的输出
+    st.session_state.workflow_state['output_content'] = None
     st.rerun()
 
 # Load config for selected workflow
@@ -193,12 +202,14 @@ input_prompts = {
 }
 
 # Text input
-if st.session_state.workflow_state['output_content'] and selected_workflow != workflow_sequence[0]:
+if 'previous_output' in st.session_state.workflow_state and st.session_state.workflow_state['previous_output']:
     input_text = st.text_area(
         input_prompts.get(selected_workflow, '输入文本'), 
-        value=st.session_state.workflow_state['output_content'],
+        value=st.session_state.workflow_state['previous_output'],
         height=200
     )
+    # 清除previous_output，避免重复使用
+    st.session_state.workflow_state['previous_output'] = None
 else:
     input_text = st.text_area(
         input_prompts.get(selected_workflow, '输入文本'),
@@ -228,8 +239,10 @@ if st.button('处理'):
                         output_content = f.read()
                     
                     # 显示输出结果
-                    st.text_area('输出结果', output_content, height=300)
-                    st.download_button('下载输出结果', output_content, file_name=f'{selected_workflow}-output.md')
+                    output_container = st.container()
+                    with output_container:
+                        st.text_area('输出结果', output_content, height=300)
+                        st.download_button('下载输出结果', output_content, file_name=f'{selected_workflow}-output.md')
                     
                     # 保存输出结果到状态
                     st.session_state.workflow_state['output_content'] = output_content
@@ -237,9 +250,13 @@ if st.button('处理'):
                     # 获取下一个工作流
                     next_workflow = get_next_workflow(selected_workflow)
                     if next_workflow:
-                        if st.button(f'继续执行 {next_workflow}'):
-                            st.session_state.workflow_state['current_workflow'] = next_workflow
-                            st.rerun()
+                        col1, col2 = st.columns([1, 5])
+                        with col1:
+                            if st.button('继续下一步', key='next_step'):
+                                switch_to_next_workflow()
+                                st.rerun()
+                        with col2:
+                            st.info(f'点击继续将进入: {next_workflow}')
                 else:
                     st.warning('未找到输出文件。显示标准输出和错误信息用于调试：')
                     st.text_area('标准输出', result.stdout, height=300)
@@ -260,8 +277,9 @@ if st.button('处理'):
 # 重置按钮
 if st.button('重新开始'):
     st.session_state.workflow_state = {
-        'current_workflow': workflow_sequence[0],
+        'current_workflow': 'indieto_tool_collect',
         'output_content': None,
+        'previous_output': None,
         'workflow_sequence': workflow_sequence
     }
     st.rerun()
