@@ -1,6 +1,11 @@
-# 简化的 logo 和 screenshot 生成工作流
+# logo 和 screenshot 生成工作流，输入 json，将 json 保存到本地，然后获取 logo 和 screenshot
 
 strategies:
+
 - input_format: '{{text}}'
+  tool_name: save_to_indieto_json
+  output_name: save_json
+
+- input_format: '{{save_json}}'
   tool_name: generate_assets
-  output_name: save_result
+  output_name: item_json_path

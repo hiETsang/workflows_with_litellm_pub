@@ -1,0 +1,18 @@
+{
+  "name": "Mkdirs",
+  "description": "Mkdirs is the best directory website boilerplate that empowers you to launch profitable directory websites in minutes, simply and effortlessly.",
+  "link": "https://mkdirs.com/",
+  "categories": [
+    "Development"
+  ],
+  "tags": [
+    "Web",
+    "No-code",
+    "One-time",
+    "Backend",
+    "Web-dev"
+  ],
+  "introduction": "## Tool Introduction\n\nMkdirs is a powerful and feature-rich boilerplate that enables you to create professional directory websites with minimal effort. It comes packed with essential features like listings, payment integration, submission workflows, CMS, blog, authentication, newsletter, SEO optimization, and more.\n\n## Key Features\n\n- Seamless integration with Sanity CMS for easy content management\n- Secure authentication system with email/password, social logins\n- Built-in submission process for free and paid listings\n- Blog system with categories and rich text editing\n- Email templates for onboarding, subscriptions, and notifications\n- Advanced search, filtering, sorting, and pagination for listings\n- Responsive design, dark mode, and fluid animations\n\n## Use Cases\n\n- Building niche directories for specific industries or interests\n- Creating curated resource listings or product directories\n- Launching online marketplaces or classifieds websites\n- Setting up business directories for local services",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mkdirs/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mkdirs/logo.jpg"
+}

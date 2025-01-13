@@ -1,0 +1,20 @@
+{
+  "name": "Magic UI",
+  "description": "Beautiful UI components and templates to enhance your landing page design.",
+  "link": "https://magicui.design/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Free",
+    "Freemium",
+    "Web",
+    "Low-code",
+    "Design Resources",
+    "Web Dev",
+    "Prototype"
+  ],
+  "introduction": "## Tool Introduction\n\nMagic UI is an open-source UI library that provides beautifully animated React components and templates designed to elevate the look and feel of your website or app. With over 50 ready-to-use components built using React, TypeScript, Tailwind CSS, and Framer Motion, it makes creating stunning user interfaces a breeze.\n\n## Standout Features\n\n- Extensive collection of visually appealing and animated UI components\n- Seamless integration with the popular Tailwind CSS utility-first framework\n- Built with performance in mind, leveraging Framer Motion for smooth animations\n- Actively maintained and backed by a vibrant open-source community\n\n## Suitable Use Cases\n\n- Building modern and engaging landing pages for products or services\n- Enhancing the user experience of web applications with delightful animations\n- Rapid prototyping of UI concepts and design systems\n- Learning and experimenting with React, Tailwind CSS, and animation libraries\n\n## Use Case Spotlight\n\n- [aomni.com](https://magicui.design/showcase/aomni): Raised seed round using Magic UI components on their landing page\n- [langfuse.com](https://magicui.design/showcase/langfuse): YC W23 startup raised $4M with a Magic UI powered website\n\n## User Testimonials\n\n> \"I think our designer just convinced me to buy @magicuidesign I can't be bothered to figure out the comets and border beam, it's cheaper to just buy\" - @beneverman\n\n> \"Congrats Dillion! Just bought one! This is fire 🔥\" - @sup_nim\n\n> \"Sick dude. Can't wait to build with these once they're all done\" - @masoudonx\n\nBased on Twitter feedback, developers seem impressed by the quality of the components and are eager to integrate Magic UI into their projects to achieve professional-grade UI/UX.",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/magicui/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/magicui/logo.jpg"
+}

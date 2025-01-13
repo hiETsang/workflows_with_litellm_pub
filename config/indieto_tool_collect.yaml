@@ -26,8 +26,3 @@ strategies:
   prompt_name: indietool_desc_pattern
   output_name: tool_desc
 
-- input_format: '{{tool_desc}}'
-  tool_name: save_to_indieto
-  tool_params:
-    link: "{{text}}"
-  output_name: save_result

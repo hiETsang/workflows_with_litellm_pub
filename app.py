@@ -537,14 +537,10 @@ class ProcessingStrategy:
                 # 处理输入文本中的变量
                 logger.info(f"Processing input format: {self.user_input_template[:100]}...")
                 # 如果是保存文件的步骤，使用 tool_desc 作为内容
-                if self.config.tool_name == 'save_to_indieto':
-                    if 'tool_desc' not in previous_outputs:
-                        raise ValueError("No tool_desc found in previous outputs")
-                    processed_chunk = previous_outputs['tool_desc']
-                elif self.config.tool_name == 'save_to_indieto_json':
-                    if 'tool_json' not in previous_outputs:
-                        raise ValueError("No tool_json found in previous outputs")
-                    processed_chunk = previous_outputs['tool_json']
+                if self.config.tool_name == 'generate_assets':
+                    if 'save_json' not in previous_outputs:
+                        raise ValueError("No save_json found in previous outputs")
+                    processed_chunk = previous_outputs['save_json']
                 else:
                     processed_chunk = self._replace_variables(self.user_input_template, chunk, previous_outputs)
                 
@@ -666,12 +662,11 @@ class FileTools:
             return "unknown"
 
     @staticmethod
-    def save_to_indieto(content: str, link: str = None, **kwargs) -> str:
+    def save_to_indieto(content: str, **kwargs) -> str:
         """Save markdown content to IndieTO directory
-        
+
         Args:
             content: The content to save (passed directly from input_format)
-            link: The URL to extract tool name from (passed from tool_params)
         """
         try:
             # Get current directory
@@ -679,13 +674,15 @@ class FileTools:
             
             if not content:
                 raise ValueError("No content provided")
-            
-            # Extract tool name from URL
-            if not link:
-                raise ValueError("No URL provided")
-                
+
+            # 从 content 中提取工具名称
+            match = re.search(r"Website: (https?://\S+)", content)
+            if not match:
+                raise ValueError("Content 中未找到 Website URL")
+            link = match.group(1)
+
             tool_name = FileTools._extract_tool_name(link)
-            
+
             # Create IndieTO directory if it doesn't exist
             indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
             os.makedirs(indieto_dir, exist_ok=True)
@@ -752,7 +749,7 @@ class FileTools:
                     json.dump(json_content, f, indent=2, ensure_ascii=False)
                 
                 logger.info(f"JSON content saved to {file_path}")
-                return f"Successfully saved to {file_path}"
+                return json_content
             except json.JSONDecodeError as je:
                 raise ValueError(f"Invalid JSON content: {str(je)}")
             
@@ -762,16 +759,34 @@ class FileTools:
             return error_msg
 
     @staticmethod
-    def generate_assets(url: str, **kwargs) -> str:
-        """生成并保存网站的 logo 和 screenshot"""
+    def generate_assets(json_data: Union[str, dict], **kwargs) -> str:
+        """生成并保存网站的 logo 和 screenshot，并返回文件路径"""
         try:
             from scripts.generate_assets import AssetGenerator
+
+            # 处理输入数据
+            if isinstance(json_data, str):
+                try:
+                    url_data = json.loads(json_data)
+                except json.JSONDecodeError as e:
+                    raise ValueError(f"JSON 解析错误: {e}")
+            else:
+                url_data = json_data
+
+            if isinstance(url_data, dict) and 'link' in url_data:
+                url = url_data['link']
+                tool_name = FileTools._extract_tool_name(url)
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                json_path = os.path.join(current_dir, 'IndieTO', tool_name, 'info.json')
+            else:
+                raise ValueError("数据中缺少 'link' 字段")
+
             generator = AssetGenerator(apiflash_key=os.getenv("APIFLASH_KEY"))
-            result = generator.save_assets(url)
-            logger.info(result)
-            return result
+            generator.save_assets(url)
+            logger.info(f"成功生成 assets: -> {current_dir}")
+            return json_path
         except Exception as e:
-            logger.error(f"Error generating assets: {e}")
+            logger.error(f"生成 assets 错误: {e}")
             return f"Error generating assets: {str(e)}"
 
     @staticmethod

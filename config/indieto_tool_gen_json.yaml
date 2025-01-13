@@ -1,4 +1,4 @@
-# 工具分类工作流，输入工具描述，生成工具分类，保存 json 到本地
+# 工具分类工作流，输入工具描述 markdown，生成工具分类，保存 markdown 到本地，最后生成 json
 
 strategies:
 - input_format: 'tool description:
@@ -6,6 +6,10 @@ strategies:
   model: openrouter/anthropic/claude-3-sonnet
   prompt_name: indietool_categorize_pattern
   output_name: tool_categories
+
+- input_format: '{{text}}'
+  tool_name: save_to_indieto
+  output_name: save_result
 
 - input_format: 'markdown content:
 
@@ -16,8 +20,4 @@ strategies:
     {{tool_categories}}'
   model: openrouter/anthropic/claude-3-sonnet
   prompt_name: indietool_json_pattern
-  output_name: tool_json 
-
-- input_format: '{{tool_json}}'
-  tool_name: save_to_indieto_json
-  output_name: save_result
+  output_name: tool_json
