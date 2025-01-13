@@ -58,43 +58,31 @@ def start_streamlit(url=None):
     try:
         # 获取项目根目录
         current_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        logging.info(f"Project directory: {current_dir}")
         
-        # 设置完整的 poetry 路径
-        poetry_path = "/opt/anaconda3/bin/poetry"
-        
-        # 检查 poetry 是否可用
-        try:
-            subprocess.run([poetry_path, '--version'], check=True, capture_output=True)
-            logging.info("Poetry is available")
-        except Exception as e:
-            logging.error(f"Poetry check failed: {str(e)}")
-            return False, str(e)
-        
-        # 启动 Streamlit
-        cmd = [poetry_path, 'run', 'streamlit', 'run', 'app_web.py', '--server.headless', 'true']
-        logging.info(f"Executing command: {' '.join(cmd)}")
-        
-        # 使用 Popen 启动进程，但不等待它完成
-        process = subprocess.Popen(
-            cmd,
-            cwd=current_dir,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            env={**os.environ, 'PATH': f"/opt/anaconda3/bin:{os.environ.get('PATH', '')}"}
+        # 运行管理脚本
+        manage_script = os.path.join(current_dir, 'scripts', 'manage_streamlit.py')
+        result = subprocess.run(
+            ['python3', manage_script],
+            capture_output=True,
+            text=True,
+            cwd=current_dir
         )
         
-        # 等待一段时间，检查进程是否正常启动
-        time.sleep(2)
-        if process.poll() is None:  # 如果进程还在运行
-            logging.info("Streamlit process started successfully")
-            return True, None
+        if result.returncode == 0:
+            try:
+                response = json.loads(result.stdout)
+                if response['status'] in ['running', 'started']:
+                    logging.info(f"Streamlit status: {response['message']}")
+                    return True, None
+                else:
+                    logging.error(f"Error starting Streamlit: {response['message']}")
+                    return False, response['message']
+            except json.JSONDecodeError:
+                logging.error("Failed to parse manage script output")
+                return False, "Internal error"
         else:
-            stdout, stderr = process.communicate()
-            error_msg = stderr.decode() if stderr else "Unknown error"
-            logging.error(f"Process failed to start: {error_msg}")
-            logging.error(f"Process stdout: {stdout.decode() if stdout else 'None'}")
-            return False, error_msg
+            logging.error(f"Manage script failed: {result.stderr}")
+            return False, result.stderr
             
     except Exception as e:
         logging.error(f"Error starting Streamlit: {str(e)}", exc_info=True)
