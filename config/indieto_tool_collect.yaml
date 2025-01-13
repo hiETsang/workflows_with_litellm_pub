@@ -5,7 +5,7 @@ strategies:
   tool_name: jina_reader
   tool_params:
     retain_images: false
-    with_links_summary: true
+    with_links_summary: false
   output_name: website_info
 
 - input_format: '{{text}}'

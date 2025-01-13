@@ -6,7 +6,7 @@
 3. slug 必须是小写字母，用连字符连接
 4. 确保 JSON 格式正确，无多余逗号
 5. 字符串值使用双引号
-6. content 字段只包含从"工具介绍"标题开始的所有内容，不包含工具名称和基础信息部分
+6. introduction 字段只包含从"工具介绍"标题开始的所有内容，不包含工具名称和基础信息部分
 
 输出json格式：
 {
@@ -27,7 +27,7 @@
       "tag6",
       "tag7",
     ],
-    "content": "markdown content",
+    "introduction": "markdown content",
     "image": "/IndieTO/toolname/screenshot.jpg",
     "icon": "/IndieTO/toolname/logo.jpg",
   }
@@ -37,5 +37,5 @@
 2. 确保所有必填字段都有值
 3. 图片相关字段暂时使用占位符
 4. 标签使用提供的分类信息中的 slug 值
-5. content 字段必须从"## 工具介绍"标题开始，包含该标题之后的所有内容
-6. 基础信息（官网、定价、平台）要提取到对应字段，不要包含在 content 中
+5. introduction 字段必须从"## 工具介绍"标题开始，包含该标题之后的所有内容
+6. 基础信息（官网、定价、平台）要提取到对应字段，不要包含在 introduction 中

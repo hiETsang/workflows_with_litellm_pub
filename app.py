@@ -638,7 +638,7 @@ class SearchTools:
             reader = JinaReader()
             
             retain_images = kwargs.get('retain_images', False)
-            with_links_summary = kwargs.get('with_links_summary', True)
+            with_links_summary = kwargs.get('with_links_summary', False)
             
             result = reader.read_url(url, retain_images=retain_images, with_links_summary=with_links_summary)
             logger.info(f"Jina reader completed for URL: {url}")
