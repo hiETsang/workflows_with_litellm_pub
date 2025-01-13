@@ -321,6 +321,8 @@ class TextProcessor(BaseTextProcessor):
                     tools[tool_name] = FileTools.save_to_indieto_json
                 elif tool_name == 'generate_assets':
                     tools[tool_name] = FileTools.generate_assets
+                elif tool_name == 'upload_to_indieto':
+                    tools[tool_name] = FileTools.upload_to_indieto
         return tools
 
     def load_models(self) -> Dict[str, APIClient]:
@@ -733,6 +735,11 @@ class FileTools:
                 tool_url = json_content['link']
                 tool_name = FileTools._extract_tool_name(tool_url)
                 
+                # 更新 image 和 icon 为绝对路径
+                indieto_base = os.path.join(current_dir, 'IndieTO')
+                json_content['image'] = os.path.abspath(os.path.join(indieto_base, tool_name, 'screenshot.jpg'))
+                json_content['icon'] = os.path.abspath(os.path.join(indieto_base, tool_name, 'logo.jpg'))
+                
                 # Create IndieTO directory if it doesn't exist
                 indieto_dir = os.path.join(current_dir, 'IndieTO', tool_name)
                 os.makedirs(indieto_dir, exist_ok=True)
@@ -766,6 +773,48 @@ class FileTools:
         except Exception as e:
             logger.error(f"Error generating assets: {e}")
             return f"Error generating assets: {str(e)}"
+
+    @staticmethod
+    def upload_to_indieto(json_path: str, **kwargs) -> str:
+        """
+        上传 JSON 文件到 indieto 后台
+        
+        Args:
+            json_path: JSON 文件的绝对路径
+            **kwargs: 额外参数
+            
+        Returns:
+            str: 上传结果信息
+        """
+        try:
+            # 验证文件存在
+            if not os.path.exists(json_path):
+                raise FileNotFoundError(f"JSON file not found: {json_path}")
+                
+            # 获取 solotools 项目路径
+            solotools_path = os.path.expanduser("~/XFiles/web/solotools")
+            if not os.path.exists(solotools_path):
+                raise FileNotFoundError(f"Solotools directory not found: {solotools_path}")
+            
+            # 构建并执行上传命令
+            current_dir = os.getcwd()
+            os.chdir(solotools_path)
+            
+            try:
+                cmd = f"pnpm run batch:item {json_path}"
+                result = os.system(cmd)
+                
+                if result == 0:
+                    return f"Successfully uploaded {json_path} to Sanity"
+                else:
+                    raise Exception(f"Upload command failed with exit code {result}")
+            finally:
+                os.chdir(current_dir)
+                
+        except Exception as e:
+            error_msg = f"Error uploading to Sanity: {str(e)}"
+            logger.error(error_msg)
+            return error_msg
 
 # Output Management
 def save_output(results: List[str], output_path: str, output_format: str):

@@ -1,0 +1,6 @@
+ # 工具上传工作流，输入工具 json 文件路径，上传到 indieto
+
+ strategies:
+ - input_format: '{{text}}'
+   tool_name: upload_to_indieto
+   output_name: upload_result
