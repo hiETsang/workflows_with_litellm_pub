@@ -1,0 +1,9 @@
+{
+    "name": "com.indieto.collector",
+    "description": "IndieTO Collector Native Host",
+    "path": "/Users/x/XFiles/ai/workflows_with_litellm_pub/browser-extension/native-host/indieto_collector.py",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://aeamhaagadjmlcgalndmkkapmbhbhdib/"
+    ]
+}

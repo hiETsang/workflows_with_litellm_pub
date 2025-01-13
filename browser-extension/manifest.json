@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "IndieTO Collector",
+    "version": "1.0",
+    "description": "一键收集工具到 IndieTO",
+    "permissions": [
+        "nativeMessaging",
+        "activeTab",
+        "tabs"
+    ],
+    "host_permissions": [
+        "http://localhost:8501/*"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    }
+}

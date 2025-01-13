@@ -4,6 +4,10 @@ import tempfile
 import os
 from dotenv import load_dotenv
 import yaml
+from urllib.parse import parse_qs
+
+# 获取URL参数
+url_param = st.query_params.get('url', None)
 
 # Load environment variables
 load_dotenv()
@@ -121,6 +125,83 @@ st.title('IndieTO工具收集工作流')
 
 # API Keys section in sidebar
 with st.sidebar:
+# 添加分类和标签展示
+    with st.expander("查看分类和标签"):
+        st.markdown("""
+        主分类（必选一项,可多选）
+        - `找需求 (Research & Discovery)` 
+        - `产品规划 (Product Planning)` 
+        - `设计创作 (Design & Creation)` 
+        - `开发实现 (Development)` 
+        - `运营推广 (Marketing & Growth)` 
+        - `变现 (Monetization)` 
+        
+        标签（多选）
+        平台支持
+        - `浏览器插件 (Browser Extension)` 
+        - `iOS 平台 (iOS)` 
+        - `Mac 平台 (macOS)` 
+        - `Windows 平台 (Windows)` 
+        - `网站 (Web)` 
+        - `API 接口 (API)` 
+        
+        使用门槛
+        - `低代码 (Low-code)` 
+        - `无代码 (No-code)` 
+        - `专业级 (Professional)` 
+        - `新手友好 (Beginner-friendly)` 
+        
+        价格模式
+        - `按量付费 (Pay-as-you-go)` 
+        - `买断制 (One-time Purchase)` 
+        - `订阅制 (Subscription)` 
+        - `免费增值 (Freemium)` 
+        - `完全免费 (Free)` 
+        
+        特色标签
+        - `AI (AI)` 
+        
+        找需求相关
+        - `需求挖掘 (Market Research)` 
+        - `需求分析 (Requirements Analysis)` 
+        
+        产品规划相关
+        - `域名 (Domain Names)` 
+        - `原型设计 (Prototyping)` 
+        - `流程图 (Flowcharts)` 
+        - `项目管理 (Project Management)` 
+        
+        设计创作相关
+        - `设计资源 (Design Resources)` 
+        - `字体 (Typography)` 
+        - `3D 设计 (3D Design)` 
+        - `图片处理 (Image Editing)` 
+        - `视频制作 (Video Production)` 
+        - `宣传图设计 (Marketing Design)` 
+        - `Logo 制作 (Logo Design)` 
+        
+        开发实现相关
+        - `数据统计 (Analytics)` 
+        - `测试工具 (Testing Tools)` 
+        - `部署服务 (Deployment)` 
+        - `后端服务 (Backend Services)` 
+        - `iOS 开发 (iOS Development)` 
+        - `Web 开发 (Web Development)` 
+        
+        运营推广相关
+        - `广告投放 (Ad Campaign)` 
+        - `邮件营销 (Email Marketing)` 
+        - `ASO 优化 (App Store Optimization)` 
+        - `SEO 优化 (Search Engine Optimization)` 
+        - `平台推广 (Platform Marketing)` 
+        - `社媒运营 (Social Media Management)` 
+        
+        变现相关
+        - `收款工具 (Payment Processing)` 
+        - `广告变现 (Ad Monetization)` 
+        - `支付系统 (Payment Systems)` 
+        """)
+
     st.header('API Keys')
     openrouter_api_key = create_api_key_input("OpenRouter", "OPENROUTER_API_KEY")
     exa_api_key = create_api_key_input("EXA", "EXA_API_KEY")
@@ -226,6 +307,10 @@ if 'previous_output' in st.session_state.workflow_state and st.session_state.wor
     st.session_state.workflow_state['input_content'] = initial_value
     # 清除 previous_output，避免重复使用
     st.session_state.workflow_state['previous_output'] = None
+elif url_param and selected_workflow == 'indieto_tool_collect':
+    # 如果有URL参数且是第一个工作流，使用URL作为初始值
+    initial_value = url_param
+    st.session_state.workflow_state['input_content'] = initial_value
 elif st.session_state.workflow_state.get('input_content') is not None:
     # 如果有保存的输入内容，使用它
     initial_value = st.session_state.workflow_state['input_content']
@@ -271,7 +356,6 @@ if st.button('处理'):
                     output_container = st.container()
                     with output_container:
                         st.text_area('输出结果', output_content, height=300)
-                        st.download_button('下载输出结果', output_content, file_name=f'{selected_workflow}-output.md')
                     
                     # 保存输出结果到状态
                     st.session_state.workflow_state['output_content'] = output_content
@@ -283,6 +367,8 @@ if st.button('处理'):
                         with col1:
                             if st.button('继续下一步', key='next_step', on_click=switch_to_next_workflow):
                                 st.rerun()
+                        with output_container:
+                            st.download_button('下载输出结果', output_content, file_name=f'{selected_workflow}-output.md')
                         with col2:
                             st.info(f'点击继续将进入: {next_workflow}')
                 else:
