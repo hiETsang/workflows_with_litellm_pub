@@ -7,20 +7,21 @@
 # indieto_tool_collect (markdown 生成)
 1. 用户输入网址，例如 https://jina.ai/，通过 jina reader api 获取官网的基础信息
 2. 从网址中获取域名 jina.ai，通过 exa api 在 twitter 搜索产品的特点和用户实际体验等
-3. 由 claude 通过 indietool_desc_pattern.md 的提示词整理生成 markdown 文件
-4. 点击保存，将 markdown 文件保存到 IndieTO/toolname/desc.md 
+3. 由 claude 通过 indietool_desc_pattern.md 的提示词整理生成 markdown 文章显示在 output
 
 # indieto_tool_gen_json (json 生成)
-1. 获取上一步保存的 markdown 文件
+1. 输入 markdown 内容
+2. 保存 markdown 到 IndieTO/toolname/desc.md
 2. 由 claude 通过 indietool_categorize_pattern.md 的提示词给工具加上分类和标签 slug
-3. 由 claude 通过 indietool_json_pattern.md 提示词整理生成 json 文件
-4. 点击保存，将 json 文件保存到 IndieTO/toolname/info.json 
+3. 由 claude 通过 indietool_json_pattern.md 提示词整理生成 json 显示在 output
 
 # indieto_tool_gen_logo (logo 生成)
-1. 输入链接，例如 https://uneed.best/
-2. 通过 [img logo API](https://img.logo.dev/uneed.best?token=pk_flBx7FQ8T7i0rIbWfbJgDw&retina=true) 获取网站的 logo 保存到 IndieTO/uneed/logo.jpg 目录下
-3. 通过 [apiflash](https://api.apiflash.com/v1/urltoimage?access_key=7716ac4eb9d64fa5911ce98d1bb8fd71&wait_until=page_loaded&url=https://uneed.best/&width=1200&height=1200&no_cookie_banners=true&scroll_page=true&no_ads=true) 获取网站的 screenshot 保存到 IndieTO/uneed/screenshot.jpg 目录下
+1. 输入 json 内容
+2. 保存 json 到 IndieTO/toolname/info.json
+3. 通过 [API](https://s2.googleusercontent.com/s2/favicons?domain=mkdirs.com&sz=256) 获取网站的 logo 保存到 IndieTO/toolname/logo.jpg 目录下
+4. 通过 [apiflash](https://api.apiflash.com/v1/urltoimage?access_key=7716ac4eb9d64fa5911ce98d1bb8fd71&wait_until=page_loaded&url=https://uneed.best/&width=1200&height=1200&no_cookie_banners=true&scroll_page=true&no_ads=true) 获取网站的 screenshot 保存到 IndieTO/toolname/screenshot.jpg 目录下
+5. 显示 json 文件的路径到 output
 
 # indieto_tool_upload (上传到后台)
-1. 输入 json 文件绝对路径，例如 /Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/uneed/info.json
+1. 输入 json 文件绝对路径，例如 /Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/toolname/info.json
 2. 通过命令行 cd /Users/x/XFiles/web/solotools pnpm run batch:item path/to/json 上传到后台

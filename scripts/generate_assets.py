@@ -38,7 +38,7 @@ class AssetGenerator:
         """使用 img logo API 获取网站 logo"""
         try:
             clean_url = self._clean_url(url)
-            logo_url = f"https://img.logo.dev/{clean_url}?token=pk_flBx7FQ8T7i0rIbWfbJgDw&retina=true"
+            logo_url = f"https://s2.googleusercontent.com/s2/favicons?domain={clean_url}&sz=256"
             logger.info(f"Fetching logo from: {logo_url}")
             
             response = requests.get(logo_url)
