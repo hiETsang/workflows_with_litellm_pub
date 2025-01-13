@@ -1,0 +1,18 @@
+{
+  "name": "NameBeta",
+  "description": "A smart domain name search, registration, and management platform with powerful tools and cost insights.",
+  "link": "https://namebeta.com/",
+  "categories": [
+    "Research & Discovery"
+  ],
+  "tags": [
+    "Web",
+    "Freemium",
+    "Domains",
+    "No-code",
+    "Project Management"
+  ],
+  "introduction": "## Tool Introduction\n\nNameBeta is a comprehensive domain name solution that empowers users to search, register, and manage domains effortlessly. It stands out with its blazing-fast search results, intuitive user interface, and powerful organization tools that simplify portfolio management.\n\n## Key Features\n\n- Instant domain search results with availability displayed instantly\n- Compare registration and renewal prices across top registrars for cost optimization\n- Advanced search filters and tagging for easy domain organization\n- Proactive expiration alerts to prevent losing valuable domains\n- Integrations with popular browser extensions and menu bar apps\n\n## Suitable Use Cases\n\n- Entrepreneurs looking for a great domain name for their new business\n- Marketing teams managing a large portfolio of domains across multiple brands\n- Website owners wanting to register matching domains for branding purposes\n- Domain investors tracking their assets and monitoring renewal costs\n\n## Usage Tips\n\n- Take advantage of the free membership to test out core features\n- Set pricing alerts to get notified when renewal fees change\n- Utilize tagging and filters to categorize domains by project, client, or priority\n- Enable multi-channel renewal notifications to never miss an expiration date\n\n## User Feedback Highlights\n\n- \"NameBeta takes the guesswork out of domain costs. I can easily find the best deals.\"\n- \"The quick search combined with bulk management tools is a game-changer.\"\n- \"Wish the mobile experience was a bit smoother, but overall a great domain tool.\"\n\n## Potential Drawbacks\n\n- Limited free features compared to paid subscription tiers\n- No native mobile apps, web experience not fully optimized for small screens\n- Initial learning curve for advanced organization and tracking features",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/namebeta/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/namebeta/logo.jpg"
+}

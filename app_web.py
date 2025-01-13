@@ -16,12 +16,14 @@ if 'workflow_state' not in st.session_state:
     st.session_state.workflow_state = {
         'current_workflow': 'indieto_tool_collect',  # 设置默认工作流
         'output_content': None,
+        'input_content': None,  # 添加输入内容的状态
         'workflow_sequence': [
             'indieto_tool_collect',
             'indieto_tool_gen_json',
             'indieto_tool_gen_logo',
             'indieto_tool_upload'
-        ]
+        ],
+        'switching_workflow': False  # 添加这个标志
     }
 
 def get_next_workflow(current_workflow):
@@ -40,8 +42,15 @@ def switch_to_next_workflow():
     current = st.session_state.workflow_state['current_workflow']
     next_workflow = get_next_workflow(current)
     if next_workflow:
-        st.session_state.workflow_state['current_workflow'] = next_workflow
+        # 设置切换标志
+        st.session_state.workflow_state['switching_workflow'] = True
+        # 保存当前输出作为下一步的输入
         st.session_state.workflow_state['previous_output'] = st.session_state.workflow_state.get('output_content')
+        # 清除当前保存的输入内容
+        st.session_state.workflow_state['input_content'] = None
+        # 更新当前工作流
+        st.session_state.workflow_state['current_workflow'] = next_workflow
+        # 清除输出内容
         st.session_state.workflow_state['output_content'] = None
 
 def create_api_key_input(key_name, env_var_name):
@@ -178,16 +187,25 @@ for i, workflow in enumerate(workflow_sequence):
 
 # Workflow selection
 workflows = load_workflows()
-selected_workflow = st.selectbox(
-    '选择工作流', 
-    workflows,
-    index=workflows.index(st.session_state.workflow_state['current_workflow'])
-)
+# 使用 session state 来存储选择的工作流
+if st.session_state.workflow_state.get('switching_workflow'):
+    # 重置切换标志
+    st.session_state.workflow_state['switching_workflow'] = False
+    # 强制选择新的工作流
+    selected_workflow = st.session_state.workflow_state['current_workflow']
+else:
+    # 正常的工作流选择逻辑
+    workflows = load_workflows()
+    selected_workflow = st.selectbox(
+        '选择工作流', 
+        workflows,
+        index=workflows.index(st.session_state.workflow_state['current_workflow'])
+    )
 
-# 如果工作流发生变化，更新状态
-if selected_workflow != st.session_state.workflow_state['current_workflow']:
+if selected_workflow != st.session_state.workflow_state['current_workflow'] and not st.session_state.workflow_state.get('switching_workflow'):
     st.session_state.workflow_state['current_workflow'] = selected_workflow
     st.session_state.workflow_state['output_content'] = None
+    st.session_state.workflow_state['input_content'] = None  # 清除保存的输入内容
     st.rerun()
 
 # Load config for selected workflow
@@ -203,22 +221,33 @@ input_prompts = {
 
 # Text input
 if 'previous_output' in st.session_state.workflow_state and st.session_state.workflow_state['previous_output']:
-    input_text = st.text_area(
-        input_prompts.get(selected_workflow, '输入文本'), 
-        value=st.session_state.workflow_state['previous_output'],
-        height=200
-    )
-    # 清除previous_output，避免重复使用
+    # 使用 previous_output 作为初始值，并同时更新 input_content
+    initial_value = st.session_state.workflow_state['previous_output']
+    st.session_state.workflow_state['input_content'] = initial_value
+    # 清除 previous_output，避免重复使用
     st.session_state.workflow_state['previous_output'] = None
+elif st.session_state.workflow_state.get('input_content') is not None:
+    # 如果有保存的输入内容，使用它
+    initial_value = st.session_state.workflow_state['input_content']
 else:
-    input_text = st.text_area(
-        input_prompts.get(selected_workflow, '输入文本'),
-        height=200
-    )
+    initial_value = ""
+
+def update_input():
+    st.session_state.workflow_state['input_content'] = st.session_state.input_text
+
+input_text = st.text_area(
+    input_prompts.get(selected_workflow, '输入文本'),
+    value=initial_value,
+    height=200,
+    key='input_text',
+    on_change=update_input
+)
 
 # Process button
 if st.button('处理'):
     if input_text:
+        # 确保当前输入内容被保存
+        st.session_state.workflow_state['input_content'] = input_text
         with st.spinner('处理中...'):
             # Save input text to a temporary file
             with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.txt', encoding='utf-8') as temp_file:
@@ -252,8 +281,7 @@ if st.button('处理'):
                     if next_workflow:
                         col1, col2 = st.columns([1, 5])
                         with col1:
-                            if st.button('继续下一步', key='next_step'):
-                                switch_to_next_workflow()
+                            if st.button('继续下一步', key='next_step', on_click=switch_to_next_workflow):
                                 st.rerun()
                         with col2:
                             st.info(f'点击继续将进入: {next_workflow}')
