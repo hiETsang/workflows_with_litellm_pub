@@ -1,0 +1,19 @@
+{
+  "name": "Aceternity UI",
+  "description": "A collection of beautiful and reusable Tailwind CSS & Framer Motion components for faster UI development.",
+  "link": "https://ui.aceternity.com/",
+  "categories": [
+    "Design & Creation",
+    "Development"
+  ],
+  "tags": [
+    "Web",
+    "Professional",
+    "Freemium",
+    "Subscription",
+    "Web Development"
+  ],
+  "introduction": "## Tool Introduction\n\n- Aceternity UI is an open-source library that provides a set of sleek and customizable UI components built with Tailwind CSS and Framer Motion. These pre-built components aim to accelerate the development process for web projects by offering ready-to-use building blocks that can be easily integrated into any modern web application.\n\n## Key Features\n\n- Extensive collection of components ranging from simple UI elements to complex animations - Built with Tailwind CSS for easy styling and customization - Utilizes Framer Motion for smooth and responsive animations - Includes both light and dark mode variants - Written in TypeScript for better type safety and maintainability\n\n## Suitable Use Cases\n\n- Building modern and responsive web applications - Prototyping and rapid UI development - Enhancing user interfaces with engaging animations - Bootstrapping new projects with a consistent design system\n\n## Getting Started Guide\n\n1. Install the required dependencies (Tailwind CSS, Framer Motion)\n2. Import the desired components from the Aceternity UI library\n3. Customize the components as needed using Tailwind utility classes or props\n\n## Usage Recommendations\n\n- Refer to the official documentation for detailed usage instructions and examples - Explore the provided code snippets and templates to jumpstart development - Leverage the theming capabilities of Tailwind CSS to achieve a consistent look and feel\n\n## Practical Examples\n\n- [Landing Page Showcase](https://ui.aceternity.com/showcase): A collection of landing page examples built with Aceternity UI components\n\n## Potential Drawbacks\n\n- Limited customization options for advanced use cases - Reliance on external dependencies (Tailwind CSS, Framer Motion) - Steep learning curve for developers unfamiliar with Tailwind CSS\n\n## Further Learning\n\n- [Aceternity UI Documentation](https://ui.aceternity.com/docs) - [Tailwind CSS Documentation](https://tailwindcss.com/docs)",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/ui/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/ui/logo.jpg"
+}
