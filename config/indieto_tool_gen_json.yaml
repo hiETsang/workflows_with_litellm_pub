@@ -2,7 +2,17 @@
 
 strategies:
 - input_format: 'tool description:
-    {{text}}'
+    {{text}}
+
+    categories:
+
+    {{memory_categories}}
+
+    tags:
+
+    {{memory_tags}}
+
+    '
   model: openrouter/anthropic/claude-3-sonnet
   prompt_name: indietool_categorize_pattern
   output_name: tool_categories
