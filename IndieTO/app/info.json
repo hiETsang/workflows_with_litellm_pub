@@ -1,0 +1,17 @@
+{
+  "name": "APPLORE",
+  "description": "A platform to explore and analyze app icon designs across various categories and colors.",
+  "link": "https://app.uiboy.com/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Free",
+    "Web",
+    "Design Resources",
+    "Logo Design"
+  ],
+  "introduction": "## Tool Introduction\n\nAPPLORE is an intuitive web platform that allows you to browse, search, and gain valuable insights into app icon designs from different industries. With its user-friendly interface, you can explore app icons categorized by color, style, and niche, making it a handy resource for designers and app developers.\n\n## Key Features\n\n- Browse app icons across various categories like games, productivity, social media, etc.\n- Filter icons based on specific colors or color combinations\n- Analyze design trends and patterns in app icon styles\n- Search for icons based on keywords or visual resemblance\n\n## Suitable Use Cases\n\n- Designers seeking inspiration for their next app icon design\n- App developers researching icon styles for their target market\n- Marketers analyzing icon design trends in their industry\n- Students or enthusiasts exploring app icon design aesthetics\n\n## Usage Tips\n\n- Sort by popularity or recently added to discover trending icon designs\n- Use the color palette feature to find icons matching your brand colors\n- Analyze competitor app icons to differentiate your design\n\n## Pros\n\n- Free to use with no registration required\n- Simple and clean user interface\n- Regular updates with new icon additions",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/app/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/app/logo.jpg"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Mixpanel",
+  "description": "Unified analytics platform to understand user behavior and optimize digital products",
+  "link": "https://mixpanel.com/",
+  "categories": [
+    "Development"
+  ],
+  "tags": [
+    "Analytics",
+    "Web",
+    "Freemium",
+    "Subscription"
+  ],
+  "introduction": "## Tool Introduction\n\nMixpanel is a powerful product analytics solution that helps businesses analyze how users interact with their digital products, uncover insights, and make data-driven decisions to drive growth. It offers an intuitive interface for non-technical teams to self-serve data without needing SQL or analytics expertise.\n\n## Standout Features\n\n- Unified data: Connect product usage data with other business metrics like marketing, support, NPS, and billing for a holistic view\n- Session Replay: Record user sessions to see qualitative insights alongside quantitative product data\n- Data Connectors: Sync trusted data from cloud data warehouses to Mixpanel for cross-team analysis\n\n## Ideal Use Cases\n\n- Understanding user behavior and optimizing product experiences\n- Tracking marketing campaign performance and optimizing user acquisition\n- Analyzing user retention, engagement and driving growth initiatives\n- Democratizing product and business data across teams\n\n## Getting Started\n\n1. Sign up for a Mixpanel account\n2. Connect your data sources (web, mobile apps, cloud data warehouses etc.)\n3. Build reports and dashboards to analyze metrics\n4. Share insights across teams and start optimizing\n\n## User Advice\n\n- Leverage out-of-the-box templates for common use cases like funnel analysis, cohort analysis etc.\n- Use data governance capabilities to maintain data integrity at scale\n- Attend Mixpanel Academy courses to upskill analytics capabilities",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mixpanel/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mixpanel/logo.jpg"
+}

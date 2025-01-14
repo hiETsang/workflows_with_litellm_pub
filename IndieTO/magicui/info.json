@@ -1,0 +1,17 @@
+{
+  "name": "Magic UI",
+  "description": "Beautiful and free UI components to build stunning landing pages.",
+  "link": "https://magicui.design/",
+  "categories": [
+    "Design & Creation",
+    "Development"
+  ],
+  "tags": [
+    "Freemium",
+    "Professional",
+    "Web Development"
+  ],
+  "introduction": "## Tool Introduction\nMagic UI is an open-source UI library packed with over 50 animated and visually appealing components built using React, TypeScript, Tailwind CSS, and Framer Motion. It serves as the perfect companion for shadcn/ui, allowing developers to effortlessly create captivating landing pages with minimal effort.\n\n## Key Features\n- 50+ free and open-source animated UI components\n- Built with React, TypeScript, Tailwind CSS, and Framer Motion\n- Designed to complement shadcn/ui for building landing pages\n- Regularly updated with new components and features\n\n## Use Cases\n- Building visually stunning and engaging landing pages\n- Enhancing the user experience of web applications\n- Rapid prototyping and development of React-based projects\n\n## Usage Tips\n- Utilize the provided component demos and documentation\n- Leverage Tailwind CSS utilities for custom styling\n- Explore the community showcases for inspiration",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/magicui/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/magicui/logo.jpg"
+}

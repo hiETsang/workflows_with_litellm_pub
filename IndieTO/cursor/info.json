@@ -1,0 +1,21 @@
+{
+  "name": "Cursor",
+  "description": "An AI-powered code editor that maximizes productivity through intelligent code suggestions and natural language editing.",
+  "link": "https://www.cursor.com/",
+  "categories": [
+    "Development"
+  ],
+  "tags": [
+    "AI",
+    "macOS",
+    "Windows",
+    "Freemium",
+    "Subscription",
+    "Beginner-friendly",
+    "iOS Development",
+    "Web Development"
+  ],
+  "introduction": "## Tool Introduction\n\nDeveloped by Anysphere, Cursor is a groundbreaking AI-powered code editor that feels intuitive yet supercharges your workflow. It accurately anticipates your coding needs, providing intelligent suggestions and multi-line code completions with a simple tab, allowing you to breeze through changes effortlessly.\n\n## Key Features\n\n- Tab auto-completion predicts your next edit based on context\n- Natural language editing to update classes or functions with simple prompts\n- Built-in assistant to fetch code snippets, explain logic, or fix bugs from your codebase\n- Customizable to import your preferred extensions, themes, and keybindings\n\n## Ideal Use Cases\n\n- Accelerating development for solo developers or teams\n- Boosting coding productivity across all languages and frameworks\n- Seamlessly integrating AI assistance into your familiar coding environment\n\n## Getting Started\n\n1. Download Cursor for your operating system\n2. Create an account and optionally sync settings from your current editor\n3. Open a project, and start coding with AI-powered completions and assistance\n\n## User Feedback\n\n- \"Cursor is hands down my biggest workflow improvement in years\" - Sawyer Hood, Figma\n- \"There is no going back after using Cursor's incredible AI editing capabilities\" - Johannes Schickling, Prisma\n\n## Praised Features\n\n- Familiarity and ease of transitioning from traditional code editors\n- Accurate and time-saving code predictions\n- Powerful multi-line editing capabilities with natural language prompts\n\n## Potential Drawbacks\n\n- Intermittent lags or freezes reported during heavy AI processing\n- Limited documentation or learning resources for advanced usage",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/cursor/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/cursor/logo.jpg"
+}

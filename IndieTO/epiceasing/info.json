@@ -1,0 +1,19 @@
+{
+  "name": "Epic Easing",
+  "description": "Quickly and easily generate animation curves for smooth transitions and effects.",
+  "link": "https://epiceasing.com/",
+  "categories": [
+    "Design & Creation",
+    "Development"
+  ],
+  "tags": [
+    "Web",
+    "Free",
+    "Beginner-friendly",
+    "iOS Development",
+    "Web Development"
+  ],
+  "introduction": "## Tool Introduction\n\nEpic Easing is a user-friendly web tool that allows you to visualize and fine-tune animation curves for various programming languages. With its intuitive interface, you can effortlessly create custom easing functions or choose from a collection of presets to achieve the perfect motion effect.\n\n## Key Features\n\n- Intuitive curve editor to craft custom animation curves\n- Library of preset easing functions like ease, spring, and bounce\n- Instant preview of animation effects\n- Export code for CSS, JavaScript, Objective-C, and Swift\n\n## Applicable Scenarios\n\n- Web designers crafting smooth UI animations and transitions\n- App developers implementing natural movement in mobile apps\n- Motion graphics artists creating fluid animations\n\n## Usage Tips\n\n- Start with preset easing functions and tweak them to your needs\n- Experiment with different curve shapes to find the desired motion feel\n- Use code export to seamlessly integrate animations into your projects",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/epiceasing/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/epiceasing/logo.jpg"
+}

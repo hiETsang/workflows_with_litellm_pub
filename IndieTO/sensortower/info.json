@@ -1,0 +1,20 @@
+{
+  "name": "Sensor Tower",
+  "description": "A leading digital market intelligence and performance analytics platform providing actionable insights into mobile apps, digital advertising, and consumer behavior",
+  "link": "https://sensortower.com/",
+  "categories": [
+    "Research & Discovery",
+    "Product Planning",
+    "Marketing & Growth"
+  ],
+  "tags": [
+    "Web",
+    "Professional",
+    "Subscription",
+    "Market Research",
+    "Analytics"
+  ],
+  "introduction": "## Tool Introduction\n\nSensor Tower is a comprehensive analytics platform that helps businesses gain deep insights into the digital economy, including mobile app performance, advertising campaigns, and consumer behavior patterns. With robust data collection and processing capabilities, it provides granular and actionable intelligence to drive strategic decision-making.\n\n## Key Features\n\n- App Performance Insights: Tracks app downloads, revenue, rankings, ratings, reviews, search ads, and other key metrics across app stores.\n- App Advertising Insights: Offers visibility into ad spending, share of voice, top advertisers, publishers, creatives across mobile ad networks.\n- Gaming Insights: Provides in-depth analysis of player acquisition, engagement, monetization, and retention for mobile games.\n- Digital Advertising Insights: Measures digital ad performance across platforms like Facebook, Instagram, TikTok, YouTube, and more.\n- Audience Insights: Reveals actual app engagement and ad exposure patterns of consumer audiences.\n\n## Applicable Scenarios\n\n- App developers seeking to optimize user acquisition, engagement, monetization strategies.\n- Mobile game publishers looking to drive player growth and retention.\n- Advertisers aiming to maximize ROI on mobile ad campaigns across networks.\n- Market researchers analyzing digital trends, consumer behavior, and industry landscapes.\n- Corporate development teams evaluating potential acquisition targets or market expansion opportunities.\n\n## Usage Suggestions\n\n- Leverage comprehensive app store data to identify growth opportunities and threats.\n- Monitor competitor ad strategies and creative executions to inform your campaigns.\n- Segment and target high-value audiences based on their actual app usage and ad exposure.\n- Benchmark app performance against industry leaders to spot areas for improvement.",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/sensortower/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/sensortower/logo.jpg"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Design Spells",
+  "description": "A curated gallery showcasing delightful design details that infuse life and fun into websites",
+  "link": "https://www.designspells.com/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Free",
+    "Web",
+    "Design Resources",
+    "Beginner-friendly"
+  ],
+  "introduction": "## Tool Introduction\n\nDesign Spells is a thoughtfully curated collection that celebrates micro-interactions, easter eggs, and other seemingly small yet magical design elements found across the web. It aims to inspire designers by showcasing how these delightful details can elevate a website's personality and user experience.",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/designspells/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/designspells/logo.jpg"
+}

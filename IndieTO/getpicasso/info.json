@@ -1,0 +1,18 @@
+{
+  "name": "Picasso",
+  "description": "Picasso is a powerful native tool to create professional App Store screenshots with ease.",
+  "link": "https://getpicasso.com/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Freemium",
+    "macOS",
+    "iOS",
+    "Subscription",
+    "Marketing Design"
+  ],
+  "introduction": "## Tool Introduction\n\nPicasso is an intuitive screenshot editing app that streamlines the process of creating stunning App Store visuals. With its user-friendly interface and robust features, Picasso empowers developers to craft professional-grade screenshots effortlessly, saving valuable time and effort.\n\n## Key Features\n\n- Automatically adds device frames to simulator screenshots\n- Allows adding images, text, and annotations to screenshots\n- Spans elements seamlessly across multiple screenshots\n- Supports localization with .xcstrings file integration\n- Offers 40+ device frames for all Apple platforms\n\n## Suitable Use Cases\n\n- App developers creating screenshots for App Store product pages\n- Creators needing visuals with device frames for marketing assets\n- UI/UX designers showcasing app designs with realistic device mockups\n\n## Usage Tips\n\n- Organize screenshots into project folders for better management\n- Utilize the span tool to duplicate elements across screenshots\n- Export screenshots directly to App Store Connect for easy uploads",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/getpicasso/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/getpicasso/logo.jpg"
+}
