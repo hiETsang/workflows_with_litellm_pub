@@ -17,6 +17,7 @@ from contextlib import contextmanager
 import logging
 from exa_py import Exa
 from litellm import completion
+import subprocess
 
 # Utility Functions
 @contextmanager
@@ -816,13 +817,50 @@ class FileTools:
             os.chdir(solotools_path)
             
             try:
-                cmd = f"pnpm run batch:item {json_path}"
-                result = os.system(cmd)
+                # 获取完整的环境变量
+                env = os.environ.copy()
                 
-                if result == 0:
+                # 添加 Node.js 相关的环境变量
+                homebrew_path = '/opt/homebrew/bin'
+                node_paths = [
+                    homebrew_path,
+                    '/opt/homebrew/opt/node@20/bin',
+                    '/usr/local/bin',
+                    os.path.expanduser('~/.nvm/versions/node/v20.10.0/bin')
+                ]
+                
+                # 更新 PATH 环境变量
+                env['PATH'] = ':'.join(node_paths + [env.get('PATH', '')])
+                
+                # 获取 node 和 pnpm 的路径
+                try:
+                    node_path = subprocess.check_output(['which', 'node'], text=True, env=env).strip()
+                    pnpm_path = subprocess.check_output(['which', 'pnpm'], text=True, env=env).strip()
+                    logger.info(f"Found node at: {node_path}")
+                    logger.info(f"Found pnpm at: {pnpm_path}")
+                except subprocess.CalledProcessError as e:
+                    logger.error(f"Error finding node/pnpm: {e}")
+                    pnpm_path = '/opt/homebrew/bin/pnpm'
+                
+                if not os.path.exists(pnpm_path):
+                    raise FileNotFoundError(f"pnpm not found at {pnpm_path}")
+                
+                logger.info(f"Using pnpm at: {pnpm_path}")
+                logger.info(f"Current directory: {os.getcwd()}")
+                logger.info(f"PATH: {env['PATH']}")
+                
+                # 使用完整路径执行命令
+                cmd = f"{pnpm_path} run batch:item {json_path}"
+                result = subprocess.run(cmd, env=env, shell=True, capture_output=True, text=True)
+                
+                logger.info(f"Command output: {result.stdout}")
+                if result.stderr:
+                    logger.error(f"Command error: {result.stderr}")
+                
+                if result.returncode == 0:
                     return f"Successfully uploaded {json_path} to Sanity"
                 else:
-                    raise Exception(f"Upload command failed with exit code {result}")
+                    raise Exception(f"Upload command failed with exit code {result.returncode}\nError: {result.stderr}")
             finally:
                 os.chdir(current_dir)
                 

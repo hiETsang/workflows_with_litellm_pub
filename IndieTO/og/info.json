@@ -1,0 +1,18 @@
+{
+  "name": "Free Open Graph Generator",
+  "description": "Generate beautiful Open Graph images with zero effort for websites and blogs.",
+  "link": "https://og.indiehub.best/",
+  "categories": [
+    "Marketing & Growth",
+    "Design & Creation"
+  ],
+  "tags": [
+    "Free",
+    "Web",
+    "Beginner-friendly",
+    "Marketing Design"
+  ],
+  "introduction": "## Tool Introduction\n\nThe Free Open Graph Generator is a user-friendly web tool that allows you to effortlessly create eye-catching open graph images to enhance your website's social media previews and engagement. With its straightforward interface and customization options, it simplifies the process of crafting visually appealing social cards.\n\n## Key Features\n\n- Customizable templates with options to modify text, logos, and background images\n- Ability to set custom background colors or gradients\n- Grid overlay and noise effect for added visual interest\n- Easy export of generated images in PNG format\n\n## Applicable Scenarios\n\n- Website owners looking to improve their content's social media visibility\n- Bloggers aiming to create attractive link preview images\n- Marketers seeking to boost social media engagement with visually compelling posts\n- Content creators wanting to enhance their brand's online presence\n\n## Usage Guide\n\n1. Visit the Free Open Graph Generator website\n2. Customize the template properties, including text, logo, and image\n3. Adjust background settings like gradient direction, grid overlay, and noise effect\n4. Preview the generated image\n5. Download the final image in PNG format\n\n## User Suggestions\n\n- Keep text concise and legible for optimal social media display\n- Experiment with different color combinations and visual elements for a unique look\n- Maintain brand consistency by incorporating your logo or brand colors\n\n## Potential Drawbacks\n\n- Limited customization options compared to advanced graphic design tools\n- No support for animated or video open graph images",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/og/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/og/logo.jpg"
+}

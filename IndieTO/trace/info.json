@@ -1,0 +1,20 @@
+{
+  "name": "trace.",
+  "description": "Discover, adapt and create SwiftUI components, build application interfaces quickly using AI.",
+  "link": "https://www.trace.zip/",
+  "categories": [
+    "Design & Creation",
+    "Development"
+  ],
+  "tags": [
+    "AI",
+    "Free",
+    "Web",
+    "No-code",
+    "Prototyping",
+    "iOS Development"
+  ],
+  "introduction": "## Tool Introduction\n\ntrace. is an innovative platform that helps app developers accelerate UI development process by easily discovering, customizing and generating SwiftUI components. It simplifies the process of creating beautiful and responsive application interfaces, saving you significant time and effort.\n\n## Main Features\n\n- Generate interfaces quickly using natural language/images with AI, with instant preview\n- Offers numerous pre-built SwiftUI components to choose from\n- Ability to adapt and customize components based on design needs\n- Seamless integration with Xcode, components can be exported to your projects\n- Clear and intuitive interface for browsing and exploration\n\n## Use Cases\n\n- Rapid prototyping of new app ideas and concepts\n- Accelerate UI development phase for SwiftUI-based iOS applications\n- Promote design consistency across projects through component reuse\n\n## Usage Tips\n\n- Browse the component library to find elements that meet your needs\n- Let AI help generate interfaces and code through descriptions or screenshot uploads\n- Stay updated on new component releases and updates\n\n## Limitations\n\n- May lack advanced customization options for complex UI requirements",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/trace/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/trace/logo.jpg"
+}

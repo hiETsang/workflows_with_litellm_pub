@@ -1,0 +1,16 @@
+{
+  "name": "ProductHunt",
+  "description": "The place to launch and discover new tech products.",
+  "link": "https://www.producthunt.com/",
+  "categories": [
+    "Marketing & Growth"
+  ],
+  "tags": [
+    "Web",
+    "Free",
+    "Platform Marketing"
+  ],
+  "introduction": "## ProductHunt\n\nProductHunt is a vibrant online community where tech enthusiasts, entrepreneurs, and product makers converge to discover, share, and discuss the latest digital products. It serves as a launchpad for innovative apps, websites, hardware projects, and tech creations, allowing makers to showcase their work to an engaged audience hungry for new ideas.\n\n## Key Features\n\n- Curated daily feed of new product launches across various tech categories.\n- Upvoting system that highlights the most popular and trending products.\n- In-depth product descriptions, screenshots, and discussions facilitated by the community.\n- Opportunity for makers to gain early exposure, feedback, and potential user acquisition.\n- Ability to follow specific topics or creators to stay updated on new launches.\n\n## Use Cases\n\n- Discover cutting-edge tech products before they go mainstream.\n- Stay informed about the latest trends and innovations in the tech industry.\n- Connect with like-minded individuals passionate about new technologies.\n- Launch your own product and gain valuable feedback from an engaged community.\n- Find inspiration for your next project or startup idea.\n\n## Community Engagement\n\n- ProductHunt has cultivated a vibrant community of tech enthusiasts, entrepreneurs, and curious minds.\n- Users can upvote, comment, and engage in discussions about new product launches.\n- Makers often participate in the discussions, offering insights and addressing user queries.\n\n## Promotional Opportunities\n\n- ProductHunt offers sponsored product listings and advertising opportunities for companies looking to promote their products to a tech-savvy audience.\n\nOverall, ProductHunt serves as a vibrant hub for product discovery, community engagement, and the celebration of innovation in the tech industry.",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/producthunt/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/producthunt/logo.jpg"
+}
