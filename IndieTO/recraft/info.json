@@ -1,0 +1,20 @@
+{
+  "name": "Recraft",
+  "description": "Recraft is a powerful AI design platform that streamlines the creative process for designers and brands.",
+  "link": "https://www.recraft.ai/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "AI",
+    "Free",
+    "Web",
+    "Image Editing",
+    "Marketing Design",
+    "Logo Design",
+    "Design Resources"
+  ],
+  "introduction": "## Tool Introduction\n\nRecraft empowers designers and creatives with a suite of cutting-edge AI tools for generating, editing, and enhancing visual content. Its intuitive interface and advanced functionalities simplify complex tasks, enabling users to experiment with infinite design styles effortlessly.\n\n## Key Features\n\n- AI Image Generator for creating photorealistic images, illustrations, and graphics from text prompts\n- AI Vector Generator to produce vector art, icons, logos, and geometric designs\n- Image Upscaler to enhance low-resolution images with exceptional detail and clarity\n- Background Remover and AI Eraser for editing and retouching images with precision\n\n## Ideal Use Cases\n\n- Content creators crafting visuals for social media, ads, and marketing campaigns\n- Graphic designers producing high-quality artwork, icons, logos, and branding materials\n- Entrepreneurs and small businesses creating compelling visuals on a budget\n- Brands maintaining consistent visual styles across all media channels\n\n## User Testimonials\n\n> \"I look forward to Recraft updates more than I look forward to new series of my favorite shows on Netflix.\" - Timothy Upai Lindris, Tech & Innovation\n\n> \"The best AI image generator on the market right now.\" - Michał Stężały, Graphic Designer\n\n## Usage Tips\n\n- Experiment with different prompts and styles to achieve desired results",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/recraft/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/recraft/logo.jpg"
+}

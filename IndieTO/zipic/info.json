@@ -1,0 +1,16 @@
+{
+  "name": "Zipic",
+  "description": "Experience effortless image compression with minimal quality loss.",
+  "link": "https://zipic.5km.tech/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Freemium",
+    "macOS",
+    "Image Editing"
+  ],
+  "introduction": "## Zipic is a powerful yet user-friendly image compression tool that allows you to shrink file sizes dramatically while retaining excellent visual quality. Its fast batch processing and wide format support make it ideal for optimizing images for the web, print, and other applications.\n\n## Key Features\n- High compression ratio with near-lossless quality\n- Batch processing for JPEG, PNG, WebP, HEIC, AVIF, TIFF, and more\n- Intuitive operation with hotkeys, auto-watch folders, and drag-and-drop\n\n## Ideal Use Cases\n- Optimizing images for websites to reduce load times\n- Compressing photos and graphics for efficient file sharing\n- Preparing visuals for presentations and documents\n\n## Usage Tips\n- Experiment with different compression levels to balance file size and quality\n- Use the resize tool to reduce resolution if needed\n- Take advantage of format conversion for further optimization\n\n## Positive Reviews\n- \"The UI and interactions are beautifully crafted. After six months of use, the experience keeps getting better. Perfect for developers, designers, bloggers, and photographers.\" - Pipu, Photographer/Designer\n- \"Zipic is lightweight and beautiful! I love how I can right-click large images in Finder and compress them in place. The workflow is seamless.\" - sintone, macOS Developer",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/zipic/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/zipic/logo.jpg"
+}

@@ -1,14 +1,12 @@
-## APPLORE > A platform to explore and analyze app icon designs across various categories and colors.
+## Napkin AI > An AI-powered tool that turns text into engaging visuals effortlessly.
 
-## Basic Info - Website: https://app.uiboy.com/ - Pricing: Free - Platform: Web
+## Basic Information - Website: https://app.napkin.ai/ - Pricing: Free to use with limitations (watermark on visuals) - Platform: Web
 
-## Tool Introduction - APPLORE is an intuitive web platform that allows you to browse, search, and gain valuable insights into app icon designs from different industries. With its user-friendly interface, you can explore app icons categorized by color, style, and niche, making it a handy resource for designers and app developers.
+## Tool Introduction - Napkin AI is a cutting-edge web application that leverages generative AI to transform text into visually appealing content, such as infographics, flowcharts, diagrams, and more. Whether you need images for presentations, social media posts, documents or more, Napkin AI streamlines the creation process with just a few clicks.
 
-## Key Features - Browse app icons across various categories like games, productivity, social media, etc.
-- Filter icons based on specific colors or color combinations - Analyze design trends and patterns in app icon styles - Search for icons based on keywords or visual resemblance
+## Key Features - AI-powered text-to-image generation for quick visual creation - Ability to customize visual styles, colors, layouts etc.
 
-## Suitable Use Cases - Designers seeking inspiration for their next app icon design - App developers researching icon styles for their target market - Marketers analyzing icon design trends in their industry - Students or enthusiasts exploring app icon design aesthetics
+## Suitable Scenarios - Content creators needing visuals for social media, blogs etc.
+- Professionals requiring visuals for presentations, reports - Small businesses creating marketing visuals on a budget
 
-## Usage Tips - Sort by popularity or recently added to discover trending icon designs - Use the color palette feature to find icons matching your brand colors - Analyze competitor app icons to differentiate your design
-
-## Pros - Free to use with no registration required - Simple and clean user interface - Regular updates with new icon additions
+## Usage Tips - Be specific in your text prompts for better visual results - Explore different visual styles to find the one that fits your brand

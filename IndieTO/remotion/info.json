@@ -1,0 +1,17 @@
+{
+  "name": "Remotion",
+  "description": "Remotion allows you to create real MP4 videos with React, enabling programmatic video creation.",
+  "link": "https://www.remotion.dev/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Freemium",
+    "Web",
+    "Video Production",
+    "Web Development"
+  ],
+  "introduction": "## Tool Introduction\nRemotion is a powerful video creation tool that brings the flexibility of React to building videos. Instead of traditional video editing software, you write React components that render out as video frames. This opens up new possibilities for parametrizing content, integrating APIs, and building interactive video apps.\n\n## Key Features\n- React-based video creation using standard web technologies\n- Render real MP4 videos with support for audio\n- Fast preview and editing experience within the browser\n- Build interactive videos that react to user input\n\n## Use Cases\n- Creating motion graphics, explainer videos, product demos\n- Building video customization/personalization apps\n- Interactive videos for training, education, presentations\n\n## Getting Started\n1. Install Remotion via npm: `npm install remotion`\n2. Create a new Remotion composition: `npx create-video` \n3. Write React components for your video\n4. Preview videos with `npx remotion preview`\n5. Render final video with `npx remotion render`\n\n## User Feedback\n- \"Remotion makes video production a breeze for web developers\"\n- \"Awesome tooling and browser-based preview is a game changer\"\n- \"Some learning curve to get started, but examples help\"\n\n## Potential Drawbacks\n- Limited third-party plugin/effect ecosystem compared to traditional video editors\n- Higher technical skills required to build complex videos",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/remotion/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/remotion/logo.jpg"
+}

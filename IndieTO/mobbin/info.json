@@ -1,0 +1,17 @@
+{
+  "name": "Mobbin",
+  "description": "Mobbin is a comprehensive design inspiration library with over 300,000 mobile app and web UI screenshots.",
+  "link": "https://mobbin.com/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Freemium",
+    "Web",
+    "Marketing Design",
+    "Design Resources"
+  ],
+  "introduction": "## Tool Introduction\n\nMobbin is an invaluable resource for UI/UX designers seeking real-world inspiration and design patterns. Its massive library showcases screenshots from over 1,000 iOS, Android, and web apps, with new content added weekly.\n\n## Key Features\n\n- Extensive library of 405,800 screens, 81,700 flows from 1,150 apps\n- Advanced filters to quickly find specific UI patterns, elements, flows\n- Insights into design patterns, copywriting, user flows from top apps\n- Figma plugin to copy designs directly into Figma projects\n\n## Suitable Use Cases\n\n- Finding inspiration for mobile app and website UI design\n- Researching standard design patterns for common UI elements\n- Observing complete user flows with transitions and animations\n- Shortening design process by referencing existing implementations\n\n## User Testimonials\n\n- \"Mobbin is a game-changer for understanding UX and UI design patterns. It's massive, meticulously organized, with deep user flows and a Figma plugin!\" - Meng To, DesignCode\n- \"Mobbin has quickly become our favorite inspiration resource for mobile apps, their advanced filtering is unmatched.\" - Daryl Ginn, Endless\n\n## Usage Tips\n\n- Use the search and advanced filters to narrow down to specific UI elements or flows\n- Bookmark frequently referenced screens and flows in Collections\n- Take advantage of the Figma plugin to directly copy designs into your projects",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mobbin/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/mobbin/logo.jpg"
+}

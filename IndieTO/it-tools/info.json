@@ -1,0 +1,15 @@
+{
+  "name": "IT Tools",
+  "description": "A feature-rich web app that provides a wide array of utilities tailored for developers, programmers, and IT professionals.",
+  "link": "https://it-tools.tech/",
+  "categories": [
+    "Development"
+  ],
+  "tags": [
+    "Web",
+    "Free"
+  ],
+  "introduction": "## Tool Introduction\n\nIT Tools is a feature-rich web app that provides a wide array of utilities tailored for developers, programmers, and IT professionals. From code formatters to encryption tools, IP address calculators to QR code generators, it offers an all-in-one solution for diverse IT needs.\n\n### Key Features\n\n- Code formatters for JSON, XML, SQL, YAML and more - Hashing, encryption and security tools - IP address calculators and subnet tools - URL encoding/decoding and parsing utilities - File conversion tools for text, images, and data formats - Developer cheatsheets for Git, regex, HTTP codes etc.\n\n### Use Cases\n\n- Formatting and minifying code for better readability - Generating secure tokens, passwords, and encryption keys - Analyzing and troubleshooting network configurations - Converting data between various text/scripting formats - Looking up reference materials like HTTP codes on the go\n\n### Usage Tips\n\n- Bookmark frequently used tools for quick access - Check for updates regularly as new utilities get added - For advanced requirements, explore IT Tools' premium paid plans\n\n### User Reviews\n\nPros: - Wide toolkit reduces need for multiple specialized utilities - Clean, minimalistic interface is easy to use - Excellent for quickly accomplishing small tasks",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/it-tools/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/it-tools/logo.jpg"
+}

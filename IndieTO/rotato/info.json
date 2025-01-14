@@ -1,0 +1,18 @@
+{
+  "name": "Rotato",
+  "description": "An easy-to-use 3D mockup generator and animator for showcasing mobile app/web designs",
+  "link": "https://rotato.app/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Freemium",
+    "Subscription",
+    "macOS",
+    "Video Production",
+    "Marketing Design"
+  ],
+  "introduction": "## Tool Description\n\nRotato is a specialized app that allows designers to quickly create high-quality 3D mockups of their app or website designs on various device models like iPhones, Android phones, laptops etc. It offers a simple drag-and-drop interface to import designs and animate them in a realistic 3D environment.\n\n## Key Features\n\n- Massive library of over 30 pre-made, photorealistic 3D device models\n- Ability to fully customize device colors, materials, backgrounds etc.\n- Advanced camera controls to adjust perspective, depth of field etc.\n- Animation timeline for creating app preview videos\n- Figma plugin for direct import of designs\n\n## Use Cases\n\n- Creating eye-catching 3D mockup images/videos to showcase app/website UIs\n- Building impressive product demos, portfolio pieces, pitch decks\n- Generating high-quality assets for App Store listings or marketing materials",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/rotato/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/rotato/logo.jpg"
+}

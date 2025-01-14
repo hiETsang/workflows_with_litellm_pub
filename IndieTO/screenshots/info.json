@@ -1,0 +1,17 @@
+{
+  "name": "Screenshots Pro",
+  "description": "A powerful, online screenshot generator to create beautiful app previews for the App Store and Google Play.",
+  "link": "https://screenshots.pro/",
+  "categories": [
+    "Design & Creation"
+  ],
+  "tags": [
+    "Beginner-friendly",
+    "Web",
+    "Marketing Design",
+    "Freemium"
+  ],
+  "introduction": "## Tool Introduction\nScreenshots Pro is a game-changing online tool that simplifies the process of creating stunning screenshot mockups for your iOS and Android apps. With its user-friendly editor, you can effortlessly frame your app screenshots into the latest device models, apply various effects, and localize content for different regions - all within a matter of minutes.\n\n## Key Features\n- Massive library of device frames (23+ Apple and Android models)\n- Supports portrait and landscape orientations\n- 3D perspective mockups for a premium look\n- Localization to translate screenshots into multiple languages\n- Auto-resizing for required App Store and Play Store sizes\n\n## Ideal Use Cases\n- Developers and designers creating app listing pages\n- Startups preparing app marketing materials\n- Agencies designing assets for client app launches\n- Individual app creators polishing their product visuals\n\n## Getting Started\n1. Browse the pre-made templates or start from scratch\n2. Upload your app screenshots and frame them on desired devices\n3. Customize colors, angles, languages, etc. using the intuitive editor\n4. Download high-res exports optimized for app stores\n\n## User Advice\n- Utilize the 3D angles to give screenshots a modern, premium feel\n- Take advantage of localization to expand to international markets\n- For bulk requirements, consider the Extended plan with API access",
+  "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/screenshots/screenshot.jpg",
+  "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/screenshots/logo.jpg"
+}

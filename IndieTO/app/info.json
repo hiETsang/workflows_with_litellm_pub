@@ -1,17 +1,18 @@
 {
-  "name": "APPLORE",
-  "description": "A platform to explore and analyze app icon designs across various categories and colors.",
-  "link": "https://app.uiboy.com/",
+  "name": "Napkin AI",
+  "description": "An AI-powered tool that turns text into engaging visuals effortlessly.",
+  "link": "https://napkin.ai/",
   "categories": [
     "Design & Creation"
   ],
   "tags": [
+    "AI",
     "Free",
     "Web",
-    "Design Resources",
-    "Logo Design"
+    "Flowcharts",
+    "Marketing Design"
   ],
-  "introduction": "## Tool Introduction\n\nAPPLORE is an intuitive web platform that allows you to browse, search, and gain valuable insights into app icon designs from different industries. With its user-friendly interface, you can explore app icons categorized by color, style, and niche, making it a handy resource for designers and app developers.\n\n## Key Features\n\n- Browse app icons across various categories like games, productivity, social media, etc.\n- Filter icons based on specific colors or color combinations\n- Analyze design trends and patterns in app icon styles\n- Search for icons based on keywords or visual resemblance\n\n## Suitable Use Cases\n\n- Designers seeking inspiration for their next app icon design\n- App developers researching icon styles for their target market\n- Marketers analyzing icon design trends in their industry\n- Students or enthusiasts exploring app icon design aesthetics\n\n## Usage Tips\n\n- Sort by popularity or recently added to discover trending icon designs\n- Use the color palette feature to find icons matching your brand colors\n- Analyze competitor app icons to differentiate your design\n\n## Pros\n\n- Free to use with no registration required\n- Simple and clean user interface\n- Regular updates with new icon additions",
+  "introduction": "Napkin AI is a cutting-edge web application that leverages generative AI to transform text into visually appealing content, such as infographics, flowcharts, diagrams, and more. Whether you need images for presentations, social media posts, documents or more, Napkin AI streamlines the creation process with just a few clicks.\n\n## Key Features - AI-powered text-to-image generation for quick visual creation - Ability to customize visual styles, colors, layouts etc.\n\n## Suitable Scenarios - Content creators needing visuals for social media, blogs etc.\n- Professionals requiring visuals for presentations, reports - Small businesses creating marketing visuals on a budget\n\n## Usage Tips - Be specific in your text prompts for better visual results - Explore different visual styles to find the one that fits your brand",
   "image": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/app/screenshot.jpg",
   "icon": "/Users/x/XFiles/ai/workflows_with_litellm_pub/IndieTO/app/logo.jpg"
 }
